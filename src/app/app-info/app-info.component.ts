@@ -27,7 +27,7 @@ export class AppInfoComponent implements OnInit {
 
   public hasError = (controlName: string, errorName: string) => {
     return this.appFormGroup.controls[controlName].hasError(errorName);
-  };
+  }
 
   onSubmit() {
     if (this.appFormGroup.valid) {
