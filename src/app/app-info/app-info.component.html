@@ -1,33 +1,56 @@
 <mat-card>
   <mat-card-content class="app-form">
-    <form (ngSubmit)="appForm.valid && onSubmit()" #appForm="ngForm">
+    <form (ngSubmit)="onSubmit()" [formGroup]="appFormGroup" autocomplete="off" novalidate>
       <mat-form-field class="app-form-full-width">
         <mat-label>First Name</mat-label>
-        <input matInput
+        <input [(ngModel)]="model.firstName"
+               formControlName="firstName"
                id="firstName"
-               name="firstName"
-               type="text"
-               [(ngModel)]="model.firstName" #firstName="ngModel" required>
-        <mat-error *ngIf="firstName.hasError('required')">
+               matInput
+               placeholder="First Name" type="text">
+        <mat-hint align="end">Not more then 60 characters long.</mat-hint>
+        <mat-error *ngIf="hasError('firstName','required')">
           First name is required
+        </mat-error>
+        <mat-error *ngIf="hasError('firstName','maxlength')">
+          You have entered more than 60 characters
         </mat-error>
       </mat-form-field>
       <mat-form-field class="app-form-full-width">
         <mat-label>Last Name</mat-label>
-        <input matInput
+        <input [(ngModel)]="model.lastName"
+               formControlName="lastName"
                id="lastName"
-               name="lastName"
+               matInput
                placeholder="Last Name"
-               type="text"
-               [(ngModel)]="model.lastName" #lastName="ngModel" required>
-        <mat-error *ngIf="lastName.hasError('required')">
+               type="text">
+        <mat-hint align="end">Not more then 60 characters long.</mat-hint>
+        <mat-error *ngIf="hasError('lastName','required')">
           Last name is required
         </mat-error>
+        <mat-error *ngIf="hasError('lastName','maxlength')">
+          You have entered more than 60 characters
+        </mat-error>
       </mat-form-field>
-      <mat-action-row>
-        <button style="margin: 20px" mat-raised-button color="primary">Submit</button>
-        <button style="margin: 20px" mat-raised-button color="accent" (click)="clear()">Clear</button>
-      </mat-action-row>
+      <mat-form-field class="app-form-full-width">
+        <mat-label>Email</mat-label>
+        <input [(ngModel)]="model.email"
+               formControlName="email"
+               id="email"
+               matInput
+               placeholder="Email"
+               type="text">
+        <mat-error *ngIf="hasError('email','required')">
+          Email is required
+        </mat-error>
+        <mat-error *ngIf="hasError('email','email')">
+          Email pattern is invalid
+        </mat-error>
+      </mat-form-field>
+      <div class="app-button-row">
+        <button color="primary" mat-raised-button>Submit</button>
+        <button (click)="clear()" color="accent" mat-raised-button>Clear</button>
+      </div>
     </form>
   </mat-card-content>
 </mat-card>

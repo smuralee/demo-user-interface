@@ -10,6 +10,11 @@
   width: 100%;
 }
 
-.app-button {
-  margin: 10px;
+.app-button-row {
+  display: table-cell;
+}
+
+.app-button-row button {
+  display: table-cell;
+  margin: 20px;
 }

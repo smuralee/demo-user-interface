@@ -1,10 +1,13 @@
 export class AppInfo {
   firstName?: string;
   lastName?: string;
-  address?: string;
   email?: string;
-  dob?: string;
   gender?: string;
+  dob?: string;
+  address?: string;
+  city?: string;
+  country?: string;
+  zipCode?: string;
   occupation?: string;
   notes?: string;
 }
