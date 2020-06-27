@@ -1,19 +1,25 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {environment} from '../../environments/environment';
+import {AppService} from './app-service';
+import {AppInfo} from '../_models';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AppInfoService {
+export class AppInfoService extends AppService {
+
+  readonly resourceName = '/login';
 
   constructor(private http: HttpClient) {
+    super();
   }
 
-  login(payload: any) {
-    this.http.post(environment.apiEndpoint, payload)
+  login(payload: AppInfo) {
+    this.http.post(this.getEndpoint(this.resourceName), payload)
       .subscribe(data =>
         console.log(data)
       );
   }
+
+
 }

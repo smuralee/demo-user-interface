@@ -20,7 +20,9 @@ export class AppInfoComponent implements OnInit {
     this.appFormGroup = new FormGroup({
       firstName: new FormControl('', [Validators.required, Validators.maxLength(60)]),
       lastName: new FormControl('', [Validators.required, Validators.maxLength(60)]),
-      email: new FormControl('', [Validators.required, Validators.email]),
+      email: new FormControl('', [
+        Validators.required, Validators.email,
+        Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\\\.[a-z]{2,4}$\'')]),
       gender: new FormControl(''),
       dob: new FormControl(),
       address: new FormControl('', [Validators.required]),
