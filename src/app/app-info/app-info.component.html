@@ -3,11 +3,10 @@
     <form (ngSubmit)="onSubmit()" [formGroup]="appFormGroup" autocomplete="off" novalidate>
       <mat-form-field class="app-form-full-width">
         <mat-label>First Name</mat-label>
-        <input [(ngModel)]="model.firstName"
-               formControlName="firstName"
+        <input formControlName="firstName"
                id="firstName"
                matInput
-               placeholder="First Name" type="text">
+               placeholder="First Name" type="text" required>
         <mat-hint align="end">Not more then 60 characters long.</mat-hint>
         <mat-error *ngIf="hasError('firstName','required')">
           First name is required
@@ -16,14 +15,16 @@
           You have entered more than 60 characters
         </mat-error>
       </mat-form-field>
+
+      <div class="app-form-spacer"></div>
+
       <mat-form-field class="app-form-full-width">
         <mat-label>Last Name</mat-label>
-        <input [(ngModel)]="model.lastName"
-               formControlName="lastName"
+        <input formControlName="lastName"
                id="lastName"
                matInput
                placeholder="Last Name"
-               type="text">
+               type="text" required>
         <mat-hint align="end">Not more then 60 characters long.</mat-hint>
         <mat-error *ngIf="hasError('lastName','required')">
           Last name is required
@@ -32,14 +33,16 @@
           You have entered more than 60 characters
         </mat-error>
       </mat-form-field>
+
+      <div class="app-form-spacer"></div>
+
       <mat-form-field class="app-form-full-width">
         <mat-label>Email</mat-label>
-        <input [(ngModel)]="model.email"
-               formControlName="email"
+        <input formControlName="email"
                id="email"
                matInput
                placeholder="Email"
-               type="text">
+               type="text" required>
         <mat-error *ngIf="hasError('email','required')">
           Email is required
         </mat-error>
@@ -47,6 +50,55 @@
           Email pattern is invalid
         </mat-error>
       </mat-form-field>
+
+      <div class="app-form-spacer"></div>
+
+      <mat-label>Please select an option :</mat-label>
+      <mat-radio-group class="app-form-full-width" formControlName="gender" id="gender">
+        <mat-radio-button value="M">Male</mat-radio-button>
+        <mat-radio-button value="F">Female</mat-radio-button>
+        <mat-radio-button value="O">Other</mat-radio-button>
+      </mat-radio-group>
+
+      <div class="app-form-spacer"></div>
+
+      <mat-form-field class="app-form-full-width">
+        <mat-label>Date of birth</mat-label>
+        <input [matDatepicker]="picker"
+               formControlName="dob"
+               id="dob"
+               matInput
+               placeholder="Date of birth"
+               readonly (click)="picker.open()">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <div class="app-form-spacer"></div>
+
+      <mat-form-field class="app-form-full-width">
+        <mat-label>Address</mat-label>
+        <input formControlName="address"
+               id="address"
+               matInput
+               placeholder="Address"
+               type="text" required>
+        <mat-error *ngIf="hasError('address','required')">
+          Address is required
+        </mat-error>
+      </mat-form-field>
+
+      <div class="app-form-spacer"></div>
+
+      <mat-form-field class="app-form-full-width">
+        <mat-label>Additional notes</mat-label>
+        <input formControlName="notes"
+               id="notes"
+               matInput
+               placeholder="Additional notes"
+               type="text">
+      </mat-form-field>
+
       <div class="app-button-row">
         <button color="primary" mat-raised-button>Submit</button>
         <button (click)="clear()" color="accent" mat-raised-button>Clear</button>

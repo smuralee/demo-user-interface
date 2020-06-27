@@ -1,5 +1,4 @@
 import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {AppInfo} from '../_models';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -11,7 +10,6 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class AppInfoComponent implements OnInit {
 
-  model: AppInfo = {};
   appFormGroup: FormGroup;
 
   constructor() {
@@ -21,22 +19,26 @@ export class AppInfoComponent implements OnInit {
     this.appFormGroup = new FormGroup({
       firstName: new FormControl('', [Validators.required, Validators.maxLength(60)]),
       lastName: new FormControl('', [Validators.required, Validators.maxLength(60)]),
-      email: new FormControl('', [Validators.required, Validators.email])
+      email: new FormControl('', [Validators.required, Validators.email]),
+      gender: new FormControl(''),
+      dob: new FormControl(),
+      address: new FormControl('', [Validators.required]),
+      notes: new FormControl('')
     });
-  }
-
-  public hasError = (controlName: string, errorName: string) => {
-    return this.appFormGroup.controls[controlName].hasError(errorName);
   }
 
   onSubmit() {
     if (this.appFormGroup.valid) {
-      alert(JSON.stringify(this.model, null, 4));
+      alert(JSON.stringify(this.appFormGroup.value, null, 4));
     }
   }
 
   clear() {
-    this.model = {};
+    this.appFormGroup.reset();
+  }
+
+  hasError(controlName: string, errorName: string) {
+    return this.appFormGroup.controls[controlName].hasError(errorName);
   }
 
 }

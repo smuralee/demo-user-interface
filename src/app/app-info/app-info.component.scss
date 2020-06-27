@@ -18,3 +18,11 @@
   display: table-cell;
   margin: 20px;
 }
+
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 20px;
+}
+
+.app-form-spacer {
+  flex: 1 1 auto;
+}

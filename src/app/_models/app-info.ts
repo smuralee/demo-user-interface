@@ -3,12 +3,12 @@ export class AppInfo {
   lastName?: string;
   email?: string;
   gender?: string;
-  dob?: string;
-  address?: string;
+  dob?: Date;
+  addressLine1?: string;
+  addressLine2?: string;
   city?: string;
   country?: string;
   zipCode?: string;
-  occupation?: string;
   notes?: string;
 }
 
