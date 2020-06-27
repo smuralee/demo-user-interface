@@ -1,5 +1,6 @@
 import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {AppInfoService} from '../_services/app-info.service';
 
 @Component({
   selector: 'app-app-info',
@@ -12,7 +13,7 @@ export class AppInfoComponent implements OnInit {
 
   appFormGroup: FormGroup;
 
-  constructor() {
+  constructor(private service: AppInfoService) {
   }
 
   ngOnInit(): void {
@@ -29,7 +30,8 @@ export class AppInfoComponent implements OnInit {
 
   onSubmit() {
     if (this.appFormGroup.valid) {
-      alert(JSON.stringify(this.appFormGroup.value, null, 4));
+      console.log(JSON.stringify(this.appFormGroup.value, null, 4));
+      this.service.login(this.appFormGroup.value);
     }
   }
 

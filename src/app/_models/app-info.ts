@@ -4,11 +4,7 @@ export class AppInfo {
   email?: string;
   gender?: string;
   dob?: Date;
-  addressLine1?: string;
-  addressLine2?: string;
-  city?: string;
-  country?: string;
-  zipCode?: string;
+  address?: string;
   notes?: string;
 }
 
