@@ -7,7 +7,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Build and run the application
 ```
-npm build
+npm install
 npm run build
 ```
 
