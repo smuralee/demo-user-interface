@@ -5,7 +5,6 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {FooterComponent} from './footer/footer.component';
 import {HeaderComponent} from './header/header.component';
-import {SpinnerComponent} from './spinner/spinner.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {HeaderInterceptor} from './_helpers';
@@ -22,15 +21,17 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {SpinnerComponent} from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     HeaderComponent,
-    SpinnerComponent,
     AppSummaryComponent,
-    AppInfoComponent
+    AppInfoComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +49,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatExpansionModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatRadioModule
+    MatRadioModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     {

@@ -1,6 +1,14 @@
 <mat-card>
   <mat-card-content class="app-form">
     <form (ngSubmit)="onSubmit()" [formGroup]="appFormGroup" autocomplete="off" novalidate>
+      <div class="app-form-full-width">
+        <mat-error>
+          {{errorMessage}}
+        </mat-error>
+      </div>
+
+      <div class="app-form-spacer"></div>
+
       <mat-form-field class="app-form-full-width">
         <mat-label>First Name</mat-label>
         <input formControlName="firstName"
