@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
 import {AppInfoService} from '../_services/app-info.service';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {Observable} from 'rxjs';
@@ -15,7 +15,7 @@ import {Router} from '@angular/router';
 })
 export class AppInfoComponent implements OnInit {
 
-  appFormGroup: FormGroup;
+  appFormGroup: UntypedFormGroup;
   errorMessage: string;
 
   constructor(private service: AppInfoService,
@@ -25,24 +25,24 @@ export class AppInfoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.appFormGroup = new FormGroup({
-      firstName: new FormControl('', [
+    this.appFormGroup = new UntypedFormGroup({
+      firstName: new UntypedFormControl('', [
         Validators.required,
         Validators.maxLength(60),
       ]),
-      lastName: new FormControl('', [
+      lastName: new UntypedFormControl('', [
         Validators.required,
         Validators.maxLength(60),
       ]),
-      email: new FormControl('', [
+      email: new UntypedFormControl('', [
         Validators.required,
         Validators.email,
         Validators.pattern('[\\w-]+@([\\w-]+\\.)+[\\w-]+'),
       ]),
-      gender: new FormControl(''),
-      dob: new FormControl(),
-      address: new FormControl('', [Validators.required]),
-      notes: new FormControl(''),
+      gender: new UntypedFormControl(''),
+      dob: new UntypedFormControl(),
+      address: new UntypedFormControl('', [Validators.required]),
+      notes: new UntypedFormControl(''),
     });
   }
 

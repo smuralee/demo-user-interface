@@ -23,6 +23,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {SpinnerComponent} from './spinner/spinner.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -40,17 +41,18 @@ import {SpinnerComponent} from './spinner/spinner.component';
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatExpansionModule,
     MatFormFieldModule,
     MatInputModule,
-    MatToolbarModule,
     MatIconModule,
-    MatCardModule,
-    MatButtonModule,
-    MatExpansionModule,
-    MatDatepickerModule,
     MatNativeDateModule,
+    MatProgressSpinnerModule,
     MatRadioModule,
-    MatProgressSpinnerModule
+    MatToolbarModule
   ],
   providers: [
     {

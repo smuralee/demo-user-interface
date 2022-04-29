@@ -8,9 +8,9 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display page header', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('demo-ui-with-angular app is running!');
+    expect(page.getHeaderText()).toEqual('Demo User Interface');
   });
 
   afterEach(async () => {
