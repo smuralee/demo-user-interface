@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-footer',
@@ -23,12 +23,6 @@ import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation} from '@an
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FooterComponent implements OnInit {
-
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
+export class FooterComponent {
 
 }
