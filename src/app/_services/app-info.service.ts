@@ -1,12 +1,12 @@
 /**
  * Copyright 2020 Suraj Muraleedharan
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *      
+ *
  *     http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { AppInfo } from '../_models';
-import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { environment } from '../../environments/environment';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {AppInfo} from '../_models';
+import {Router} from '@angular/router';
+import {Observable} from 'rxjs';
+import {environment} from '../../environments/environment';
 
 
 @Injectable({
@@ -32,10 +32,11 @@ export class AppInfoService {
   }
 
   register(payload: AppInfo) {
-    // FIXME: Uncomment the HTTP POST once API endpoint is available
-
-    // return this.http.post(this.getEndpoint(this.resourceName), payload);
-    return new Observable(this.waitTimer);
+    if (environment.production) {
+      return this.http.post(this.getEndpoint(this.resourceName), payload);
+    } else {
+      return new Observable(this.waitTimer);
+    }
   }
 
   waitTimer(observer) {
