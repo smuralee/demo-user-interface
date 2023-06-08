@@ -7,11 +7,12 @@ This project has been tested with [Angular CLI](https://github.com/angular/angul
 
 ## Build and run the application
 
-### For local build and deploy
+### For local build, test and deploy
 ```
 npm install
 npm run build
-npm run serve
+npm run test
+npm run start
 ```
 **Note:** 
 * Replace the `apiEndpoint` [environment.prod.ts](./src/environments/environment.prod.ts) value as per your production environment
@@ -27,5 +28,3 @@ docker build -t demo-user-interface .
 
 ## Can I build it using AWS CodeBuild?
 * Yes, included is an example for [buildspec.yml](./buildspec.yml)
-
-
